@@ -1,0 +1,120 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: black;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* Add padding to containers */
+.container {
+    padding: 16px;
+    background-color: white;
+}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+/* Overwrite default styles of hr */
+hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+}
+
+/* Set a style for the submit button */
+.registerbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+}
+
+.registerbtn:hover {
+    opacity: 1;
+}
+
+/* Add a blue text color to links */
+a {
+    color: dodgerblue;
+}
+
+/* Set a grey background color and center the text of the "sign in" section */
+.signin {
+    background-color: #f1f1f1;
+    text-align: center;
+}
+</style>
+</head>
+<body>
+<form action="/currency-converter">
+  <div class="container">
+    
+     
+    <table>
+  <thead>
+    <tr>
+      <th th:text="From">From</th>
+      <th th:text="To">To</th>
+      <th th:text="Quantity">Quantity</th>
+      <th th:text="ConvertionMultiple">ConversionMultiple</th>
+      <th th:text="TotalAmount">TotalAmount</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td th:text="${from}"></td>
+      <td th:text="${to}"></td>
+      <td th:text="${quantity}"></td>
+      <td th:text="${conversionMultiple}"></td>
+      <td th:text="${totalAmount}"></td>
+      
+    </tr>
+  </tbody>
+</table>
+     
+    <!-- <label for="from"><b>From</b></label><p th:text="${to}" />
+    <input type="text" placeholder=th:text="${to}" name="from" >
+
+    <label for="to"><b>To</b></label><p th:text="${to}" />
+    <input type="text" placeholder="Enter To Currency" name="to" >
+
+    <label for="quantity"><b>Quantity</b></label> <p th:text="${quantity}" />
+    <input type="text" placeholder="quantity" name="quantity" >
+	
+	<label for="conversionMultiple"><b>Conversoin Multiple </b></label><p th:text="${conversionMultiple}" />
+    <input type="text" placeholder="Conversion Multiple" name="Conversion Multiple" >
+	
+	 <label for="totlaAmount"><b>Total Amount</b></label>  <p th:text="${totalAmount}" />
+    <input type="text" placeholder="totalAmount" name="totalAmount" >
+    <hr>
+    
+  </div> -->
+  
+  
+
+    
+</body>
+</html>

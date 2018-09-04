@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
+<script src="convertctrl.js"></script>
+<body ng-controller="ConvertController">
+
+<div class="container">
+      <div class="page-header">
+        <h1>Currency Conversion</h1>
+      </div>
+      <p class="lead">Currency Converter</p>
+      <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="form-group">
+          <label for="amount">Amount</label>
+          <input type="number" step="any" class="form-control" id="amount" ng-model="currencyObject.amount">
+        </div>
+      </div>
+        <div class="col-md-8 col-md-offset-2">
+            <div class="form-group">
+             <label for="from">From</label>
+              <select class="form-control" id="from" ng-model="currencyObject.from" ng-change="getexchangerate()">
+                <option ng-repeat="currencyCode in currencyCodes" value="{{currencyCode.value}}">{{currencyCode.display}}</option>
+              </select>
+            </div>
+        </div>
+
+        <div class="col-md-8 col-md-offset-2">
+            <div class="form-group">
+             <label for="to">To</label>
+              <select class="form-control" id="to" ng-model="currencyObject.to" ng-change="getexchangerate()">
+                <option ng-repeat="currencyCode in currencyCodes" value="{{currencyCode.value}}">{{currencyCode.display}}</option>
+              </select>
+            </div>
+        </div>
+
+        <br>
+        <br>
+        
+        <br>
+        <div class="col-md-8 col-md-offset-2" ng-show="currencyObject.amount">
+            <h3 class="display-4" ng-If="currencyObject.from != currencyObject.to"> {{currencyObject.exchangeRate | toDecimal:2}}</h3>
+            <h3 class="display-4" ng-If="currencyObject.from != currencyObject.to">{{currencyObject.amount}} {{currencyObject.from}} <span ng-show="currencyObject.to">=</span> <span ng-show="(currencyObject.amount * currencyObject.exchangeRate)">{{(currencyObject.amount * currencyObject.exchangeRate)  | toDecimal:2}}</span> {{currencyObject.to}}</h3>
+            <h3 class="display-4" ng-If="(currencyObject.from == currencyObject.to && currencyObject.from !== undefined && currencyObject.to !== undefined)">{{currencyObject.amount}} {{currencyObject.from}} = {{currencyObject.amount}} {{currencyObject.from}}</h3>
+        </div>
+
+      </div>
+    </div>
+ </body>
+ </html>
